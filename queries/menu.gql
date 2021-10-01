@@ -1,0 +1,35 @@
+{
+  menuItems(where: { location: PRIMARY }) {
+    nodes {
+      id
+      label
+      path
+      order
+    }
+  }
+  plantillas(where: { name: "general" }) {
+    nodes {
+      cmbPlantillas {
+        favicon {
+          altText
+          srcSet
+          sourceUrl
+        }
+        logo {
+          altText
+          id
+          srcSet
+          sourceUrl
+        }
+        redesSociales {
+          link
+          nombreEnLaRed
+          redSocial
+        }
+        textoDescriptivo
+        titulo
+      }
+      id
+    }
+  }
+}

@@ -1,0 +1,30 @@
+query ($id: ID!) {
+  cPTCursoATCBy(id: $id) {
+    id
+    title
+    featuredImage {
+      node {
+        altText
+        srcSet
+        sourceUrl
+      }
+    }
+    configuracionCursosATC {
+      categoria
+      certificadoOtorgado
+      descripcion
+      duracion
+      fechaDeInicio
+      jornada
+      modalidad
+      sede
+      valor
+      miniatura {
+        altText
+        srcSet
+        sourceUrl
+      }
+    }
+  }
+}
+

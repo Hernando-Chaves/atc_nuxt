@@ -1,0 +1,97 @@
+{
+  pages(where: { title: "Programas" }) {
+    nodes {
+      pageProgramas {
+        tituloHero
+        textoBotonRojo
+      }
+      featuredImage {
+        node {
+          altText
+          srcSet
+          sourceUrl
+          id
+        }
+      }
+      id
+    }
+  }
+
+  # cPTCursosATC(where: { status: PUBLISH }) {
+  #   nodes {
+  #     title
+  #     id
+  #     featuredImage {
+  #       node {
+  #         altText
+  #         caption
+  #         id
+  #         srcSet
+  #         sourceUrl
+  #       }
+  #     }
+  #     configuracionCursosATC {
+  #       fechaDeInicio
+  #       valor
+  #       modalidad
+  #       sede
+  #       duracion
+  #       categoria
+  #       certificadoOtorgado
+  #       jornada
+  #       descripcion
+  #       miniatura {
+  #         altText
+  #         id
+  #         srcSet
+  #         sourceUrl
+  #       }
+  #       pdfDelPrograma {
+  #         uri
+  #       }
+  #     }
+  #   }
+  # }
+
+  # cPTCursosATC(where: { status: PUBLISH }) {
+  #   edges {
+  #     node {
+  #       id
+  #       configuracionCursosATC {
+  #         categoria
+  #         certificadoOtorgado
+  #         descripcion
+  #         duracion
+  #         fechaDeInicio
+  #         jornada
+  #         modalidad
+  #         sede
+  #         valor
+  #         miniatura {
+  #           altText
+  #           srcSet
+  #           sourceUrl
+  #         }
+  #       }
+  #     }
+  #   }
+  # }
+
+  # TMP
+  cPTCursosATC {
+    edges {
+      node {
+        id
+        title
+        featuredImage {
+          node {
+            altText
+            srcSet
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+
+}

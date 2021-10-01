@@ -1,0 +1,27 @@
+{
+  plantillas(where: { title: "general" }) {
+    edges {
+      node {
+        general {
+          favicon {
+            id
+          }
+          logo {
+            id
+            sourceUrl
+            srcSet
+            uri
+            altText
+          }
+          titulo
+          textoDescriptivo
+          redesSociales {
+            redSocial
+            nombreEnLaRed
+            urlRed
+          }
+        }
+      }
+    }
+  }
+}
