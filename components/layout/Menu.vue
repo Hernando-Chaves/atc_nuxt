@@ -45,16 +45,26 @@
           :class="{ flex: open, hidden: !open }"
           class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row "
         >
-          <nuxt-link
+          <!-- <nuxt-link
             :to="cleanUrl(item.path) == '' ? '/' : cleanUrl(item.path)"
             v-for="item in menu"
             :key="item.id"
             class="px-4 py-2 mt-2 text-sm font-semibold text-gray-600 uppercase dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:shadow-outline"
           >
             {{ item.label }}
-            <!-- <span>
+          </nuxt-link> -->
+          <!-- <span>
               <fa :icon="['fab', 'youtube']" />
             </span> -->
+          <nuxt-link
+            :to="
+              cleanUrl(item.path) == '' ? '/' : { name: cleanUrl(item.path) }
+            "
+            v-for="item in menu"
+            :key="item.id"
+            class="px-4 py-2 mt-2 text-sm font-semibold text-gray-600 uppercase dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-700 focus:text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:shadow-outline"
+          >
+            {{ item.label }}
           </nuxt-link>
           <div
             @click.away="open = false"
@@ -75,12 +85,6 @@ export default {
       plantilla: "",
       open: true
     };
-  },
-  methods: {
-    cleanUrl(url) {
-      let path = url.split("/");
-      return path[2];
-    }
   },
   async fetch() {
     const client = this.$apollo.getClient();

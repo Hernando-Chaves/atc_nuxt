@@ -1,0 +1,21 @@
+{
+  pages(where: {title: "Por que escoger ATC"}) {
+    edges {
+      node {
+        template {
+          ... on DefaultTemplate {
+            heroPaginas {
+              textoBotonRojo
+              titulo
+              imagenDeFondo {
+                altText
+                srcSet
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,44 @@
 <template>
   <div>
-    <h1 class="text-center text-2xl">Inscripciones</h1>
+    <LayoutHero :hero="hero" :img="imgHero" />
+    <!-- <CursosProgramas /> -->
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      hero: "",
+      imgHero: ""
+    };
+  },
+  async fetch() {
+    const client = this.$apollo.getClient();
+    const query = {
+      query: require("~/queries/paginas/inscripciones.gql")
+    };
+
+    await client
+      .query(query)
+      .then(resp => {
+        const [
+          {
+            node: {
+              template: {
+                heroPaginas,
+                heroPaginas: { imagenDeFondo }
+              }
+            }
+          }
+        ] = resp.data.pages.edges;
+
+        this.hero = heroPaginas;
+        this.imgHero = imagenDeFondo;
+      })
+      .catch(console.log);
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>

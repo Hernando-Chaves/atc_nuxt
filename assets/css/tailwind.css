@@ -6,4 +6,5 @@
   .cubo {
     @apply bg-blue-400 text-center text-base text-white px-1 w-24 rounded-md shadow-md;
   }
+  
 }

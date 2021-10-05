@@ -1,24 +1,19 @@
 {
-  plantillas(where: { title: "general" }) {
-    edges {
-      node {
-        general {
-          favicon {
-            id
-          }
-          logo {
-            id
-            sourceUrl
-            srcSet
-            uri
-            altText
-          }
-          titulo
-          textoDescriptivo
-          redesSociales {
-            redSocial
-            nombreEnLaRed
-            urlRed
+  plantillas(where: {title: "slider"}) {
+    nodes {
+      cmbSlider {
+        slide {
+          informacionDelSlide {
+            titulo
+            textoEnFranjaRoja
+            subtitulo
+            posicionDelTexto
+            imagen {
+              altText
+              title
+              srcSet
+              sourceUrl
+            }
           }
         }
       }
