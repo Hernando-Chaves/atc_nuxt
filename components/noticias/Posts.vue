@@ -1,52 +1,54 @@
 <template>
   <div class="">
-    <div class="cursos-atc pt-4">
+    <div class="cursos-atc pt-7">
       <div class="title-atc">
         <h2 class="text-2xl text-center text-black uppercase font-semibold">
-          NUESTROS PROGRAMAS
+          EVENTOS Y NOTICIAS
         </h2>
       </div>
       <div class="grid grid-cols-3 gap-2 mt-4b mt-5 container">
         <div
           class="pb-6 pt-2 px-3 hover:shadow-xl transition duration-500"
-          v-for="{
-            title,
-            id,
-            configuracionCursosATC: { categoria, sede, miniatura }
-          } in cursos"
+          v-for="{ id, title, excerpt, categories, featuredImage } in posts"
           :key="id"
         >
           <nuxt-link
             :to="{
-              name: 'programas-id',
+              name: 'noticias-id',
               params: {
-                id: id,
-                img: ''
+                id: id
               }
             }"
           >
-            <div class="card ">
+            <div
+              class="card bg-cover bg-no-repeat"
+              v-for="{ sourceUrl, altText, srcSet, id } in featuredImage"
+              :key="id"
+            >
               <img
-                :src="miniatura.sourceUrl"
-                :alt="miniatura.altText"
-                :srcset="miniatura.srcSet"
+                class="max-h-48 w-full "
+                :src="sourceUrl"
+                :alt="altText"
+                :srcset="srcSet"
               />
             </div>
             <div class="mt-2">
-              <span class="text-sm text-primary-500 uppercase font-semibold">
-                {{ categoria }}--
-              </span>
-              <span class="text-sm text-gray-500 uppercase font-semibold">
-                {{ sede }}
+              <span
+                class="text-xl text-primary-500  font-semibold"
+                v-for="({ name }, i) in categories.nodes"
+                :key="i + Math.random()"
+              >
+                {{ name }}
               </span>
             </div>
             <h2 class="text-lg text-black font-semibold h-14 mt-2">
               {{ title }}
             </h2>
+            <p v-html="excerpt.substring(0, 80)"></p>
             <button
               class="text-gray-900 text-base hover:bg-primary-500 hover:text-white transition duration-500 px-5 py-3 mt-8"
             >
-              Ver programa
+              Ver más
               <span>
                 <fa :icon="['fas', 'arrow-right']" />
               </span>
@@ -61,8 +63,8 @@
 <script>
 export default {
   computed: {
-    cursos() {
-      return this.$store.getters["cursos/getCursos"];
+    posts() {
+      return this.$store.getters["posts/getPosts"];
     }
   }
 };

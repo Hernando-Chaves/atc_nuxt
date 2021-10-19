@@ -1,3 +1,58 @@
+{
+  pages(where: { title: "Programas" }) {
+    edges {
+      node {
+        template {
+          ... on DefaultTemplate {
+            heroPaginas {
+              textoBotonRojo
+              titulo
+              imagenDeFondo {
+                altText
+                srcSet
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  cPTCursosATC(where: { status: PUBLISH }) {
+    nodes {
+      id
+      cPTCursoATCId
+      title
+      featuredImage {
+        node {
+          altText
+          srcSet
+          sourceUrl
+        }
+      }
+      configuracionCursosATC {
+        categoria
+        sede
+        certificadoOtorgado
+        descripcion
+        duracion
+        fechaDeInicio
+        jornada
+        modalidad
+        pdfDelPrograma {
+          sourceUrl
+        }
+        miniatura {
+          altText
+          srcSet
+          sourceUrl
+        }
+      }
+    }
+  }
+}
+
 # query MyQuery {
 #   cursos(where: { status: PUBLISH }) {
 #     edges {
@@ -36,40 +91,40 @@
 #   }
 # }
 
-query MyQuery {
-  cPTCursosATC(where: { status: PUBLISH }) {
-    nodes {
-      title
-      id
-      featuredImage {
-        node {
-          altText
-          caption
-          id
-          srcSet
-          sourceUrl
-        }
-      }
-      configuracionCursosATC {
-        fechaDeInicio
-        valor
-        modalidad
-        sede
-        duracion
-        categoria
-        certificadoOtorgado
-        jornada
-        descripcion
-        miniatura {
-          altText
-          id
-          srcSet
-          sourceUrl
-        }
-        pdfDelPrograma {
-          uri
-        }
-      }
-    }
-  }
-}
+# query MyQuery {
+#   cPTCursosATC(where: { status: PUBLISH }) {
+#     nodes {
+#       title
+#       id
+#       featuredImage {
+#         node {
+#           altText
+#           caption
+#           id
+#           srcSet
+#           sourceUrl
+#         }
+#       }
+#       configuracionCursosATC {
+#         fechaDeInicio
+#         valor
+#         modalidad
+#         sede
+#         duracion
+#         categoria
+#         certificadoOtorgado
+#         jornada
+#         descripcion
+#         miniatura {
+#           altText
+#           id
+#           srcSet
+#           sourceUrl
+#         }
+#         pdfDelPrograma {
+#           uri
+#         }
+#       }
+#     }
+#   }
+# }

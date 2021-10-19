@@ -1,44 +1,20 @@
 <template>
   <div>
-    <LayoutHero :hero="hero" :img="imgHero" />
-    <!-- <CursosProgramas /> -->
+    <div>
+      <LayoutHero
+        :hero="getheroPorqueAtc"
+        :img="getheroPorqueAtc.imagenDeFondo"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      hero: "",
-      imgHero: ""
-    };
-  },
-  async fetch() {
-    const client = this.$apollo.getClient();
-    const query = {
-      query: require("~/queries/paginas/porqueAtc.gql")
-    };
-
-    await client
-      .query(query)
-      .then(resp => {
-        const [
-          {
-            node: {
-              template: {
-                heroPaginas,
-                heroPaginas: { imagenDeFondo }
-              }
-            }
-          }
-        ] = resp.data.pages.edges;
-
-        this.hero = heroPaginas;
-        this.imgHero = imagenDeFondo;
-      })
-      .catch(console.log);
+  computed: {
+    getheroPorqueAtc() {
+      return this.$store.getters["porque-atc/getheroPorqueAtc"];
+    }
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

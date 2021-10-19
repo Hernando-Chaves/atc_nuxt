@@ -1,5 +1,12 @@
   <template>
     <div>
+      <!-- <div class="loading" v-if="$fetchState.pending">
+      <h1 class="text-md text-center text-gray-400">
+        Cargando...
+      </h1>
+    </div>
+    <div v-else>
+    </div> -->
       <!-- This shows a success message if the form was submitted correctly. -->
       <div v-if="success" class="rounded bg-indigo-500 text-white text-lg p-4">
         Great! Your message has been sent successfully. I will try to respond

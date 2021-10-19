@@ -2,7 +2,7 @@
   <div>
     <div>
       <span>
-        <CursosButtonBack />
+        <LayoutButtonBack />
       </span>
       <h3 class="uppercase text-3xl font-semibold">perfil</h3>
       <div

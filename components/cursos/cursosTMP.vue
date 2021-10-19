@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="my-4">
     <div class="cursos-atc pt-4">
       <div class="title-atc">
         <h2 class="text-2xl text-center text-black uppercase font-semibold">
@@ -21,7 +21,8 @@
               name: 'programas-id',
               params: {
                 id: id,
-                img: ''
+                hero: hero,
+                img: imgHero
               }
             }"
           >
@@ -60,10 +61,38 @@
 
 <script>
 export default {
-  computed: {
-    cursos() {
-      return this.$store.getters["cursos/getCursos"];
-    }
+  data() {
+    return {
+      cursos: "",
+      hero: "",
+      imgHero: ""
+    };
+  },
+  async fetch() {
+    const client = this.$apollo.getClient();
+    const query = {
+      query: require("@/queries/paginas/programas.gql")
+    };
+    await client
+      .query(query)
+      .then(resp => {
+        this.cursos = resp.data.cPTCursosATC.nodes;
+
+        const [
+          {
+            node: {
+              template: {
+                heroPaginas,
+                heroPaginas: { imagenDeFondo }
+              }
+            }
+          }
+        ] = resp.data.pages.edges;
+
+        this.hero = heroPaginas;
+        this.imgHero = imagenDeFondo;
+      })
+      .catch(console.log);
   }
 };
 </script>

@@ -1,0 +1,30 @@
+query($id: ID!) {
+  postBy(id: $id) {
+    id
+    title
+    date
+    excerpt
+    categories {
+      nodes {
+        id
+        categoryId
+        name
+      }
+    }
+    featuredImage {
+      node {
+        id
+        altText
+        srcSet
+        sourceUrl
+      }
+    }
+    author {
+      node {
+        id
+        name
+      }
+    }
+    content
+  }
+}

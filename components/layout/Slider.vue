@@ -18,11 +18,11 @@
         <input
           class="carousel-open"
           type="radio"
-          :id="'carousel-' + i"
+          :id="`carousel-${i}`"
           name="carousel"
           aria-hidden="true"
           hidden=""
-          :checked="i == 1 ? 'checked' : ''"
+          :checked="i == 1 ? 'checked' : false"
         />
 
         <div
@@ -37,7 +37,7 @@
             class=" w-96 h-64"
             :class="posicionDelTexto == 'derecha' ? 'ml-96' : 'ml-48'"
           >
-            <h2 class="text-2xl text-black underline font-semibold">
+            <h2 class="text-xl text-black underline font-bold">
               {{ subtitulo }}
             </h2>
             <h1 class="text-black uppercase text-7xl font-bold">
@@ -52,7 +52,7 @@
           </div>
         </div>
         <label
-          :for="`carousel-${i - 1}`"
+          :for="`carousel-${i == 1 ? Object.keys(slider).length : i + 1}`"
           class="control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer  font-bold text-black hover:text-white rounded-full bg-white hover:bg-primary-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto flex justify-center content-center"
         >
           <span>
@@ -60,7 +60,7 @@
           </span>
         </label>
         <label
-          :for="`carousel-${i + 1}`"
+          :for="`carousel-${i == Object.keys(slider).length ? 1 : i + 1}`"
           class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden font-bold text-black hover:text-white rounded-full bg-white hover:bg-primary-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto"
         >
           <span>

@@ -21,16 +21,16 @@ module.exports = {
         }
       },
     },
-    container:
-    {
-      padding:
-      {
-        default: "1rem",
-        sm: "6rem",
-        lg: "8rem",
-        xl: "10rem"
-      }
-    }
+    // container:
+    // {
+    //   padding:
+    //   {
+    //     default: "1rem",
+    //     sm: "3rem",
+    //     lg: "4rem",
+    //     xl: "6rem"
+    //   }
+    // }
   },
   variants:
   {

@@ -1,11 +1,22 @@
 <template>
   <div>
-    <!-- <div class="slider bg-gray-100 h-96 mb-5"></div> -->
     <LayoutSlider />
-    <CursosProgramas />
+
+    <div class="my-4">
+      <CursosProgramas />
+    </div>
+    <div class="my-4">
+      <Egresados />
+    </div>
+    <div class="mt-14">
+      <NoticiasPosts />
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+// import egresados from "./egresados.vue";
+export default {
+  // components: { egresados }
+};
 </script>

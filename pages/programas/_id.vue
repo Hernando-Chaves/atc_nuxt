@@ -1,7 +1,6 @@
 <template>
   <div class="mb-6">
-    <LayoutHero :hero="hero" :img="img" />
-
+    <LayoutHero :hero="getHeroPrograms" :img="getHeroPrograms.imagenDeFondo" />
     <div class="container grid grid-cols-3 mt-5">
       <CursosImgPrograma
         class="col-span-2"
@@ -16,14 +15,20 @@
 
 <script>
 export default {
+  computed: {
+    getHeroPrograms() {
+      return this.$store.getters["cursos/getHeroPrograms"];
+    },
+    getImgHeroPrograms() {
+      return this.$store.getters["cursos/getImgHeroPrograms"];
+    }
+  },
   async asyncData({ app, route }) {
     const client = app.apolloProvider.defaultClient,
       id = route.params.id,
-      hero = route.params.hero,
-      img = route.params.img,
       query = {
         query: require("~/queries/cpt/single_curso.gql"),
-        variables: { id, hero, img }
+        variables: { id }
       };
     let curso = null;
     let config = null;
@@ -35,7 +40,7 @@ export default {
       })
       .catch(console.log);
 
-    return { curso, hero, config, img };
+    return { curso, config };
   }
 };
 </script>

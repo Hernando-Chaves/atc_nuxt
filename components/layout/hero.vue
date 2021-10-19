@@ -2,7 +2,9 @@
   <div>
     <div
       class="w-full h-72 flex items-center justify-center"
-      :style="{ backgroundImage: `url(${img.sourceUrl})` }"
+      :style="{
+        backgroundImage: `url(${img.sourceUrl})`
+      }"
     >
       <div
         class=" h-52 flex content-center bg-cover bg-no-repeat flex-col justify-center flex-wrap "
@@ -23,11 +25,11 @@ export default {
   props: {
     hero: {
       type: Object,
-      required: true
+      required: false
     },
     img: {
-      type: Array,
-      required: true
+      type: Object,
+      required: false
     }
   }
 };

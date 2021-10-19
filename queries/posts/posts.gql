@@ -1,0 +1,32 @@
+query MyQuery {
+  posts(where: { status: PUBLISH }) {
+    nodes {
+      id
+      title
+      date
+      excerpt
+      categories {
+        nodes {
+          categoryId
+          name
+        }
+      }
+      author {
+        node {
+          nicename
+          username
+        }
+      }
+      content
+      featuredImage {
+        node {
+          altText
+          id
+          srcSet
+          sourceUrl
+        }
+      }
+      postId
+    }
+  }
+}

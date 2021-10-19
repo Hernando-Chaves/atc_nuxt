@@ -1,0 +1,51 @@
+{
+  pages(where: { title: "Egresados" }) {
+    edges {
+      node {
+        template {
+          ... on DefaultTemplate {
+            heroPaginas {
+              textoBotonRojo
+              titulo
+              imagenDeFondo {
+                altText
+                srcSet
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  egresados(where: { status: PUBLISH }) {
+    nodes {
+      id
+      title
+      featuredImage {
+        node {
+          altText
+          id
+          sourceUrl
+          srcSet
+        }
+      }
+      cmbEgresados {
+        correo
+        sitioWeb
+        titulo
+        descripcion
+        miniatura {
+          altText
+          sourceUrl
+          srcSet
+        }
+        redesSociales {
+          nombreDeUsuario
+          redSocial
+          urlDeLaRedSocial
+        }
+      }
+    }
+  }
+}

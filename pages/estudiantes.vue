@@ -1,44 +1,21 @@
 <template>
   <div>
-    <LayoutHero :hero="hero" :img="imgHero" />
-    <!-- <CursosProgramas /> -->
+    <div>
+      <LayoutHero
+        :hero="getHeroEstudiantes"
+        :img="getHeroEstudiantes.imagenDeFondo"
+      />
+      <NoticiasPosts />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      hero: "",
-      imgHero: ""
-    };
-  },
-  async fetch() {
-    const client = this.$apollo.getClient();
-    const query = {
-      query: require("~/queries/paginas/estudiantes.gql")
-    };
-
-    await client
-      .query(query)
-      .then(resp => {
-        const [
-          {
-            node: {
-              template: {
-                heroPaginas,
-                heroPaginas: { imagenDeFondo }
-              }
-            }
-          }
-        ] = resp.data.pages.edges;
-
-        this.hero = heroPaginas;
-        this.imgHero = imagenDeFondo;
-      })
-      .catch(console.log);
+  computed: {
+    getHeroEstudiantes() {
+      return this.$store.getters["estudiantes/getHeroEstudiantes"];
+    }
   }
 };
 </script>
-
-<style lang="scss" scoped></style>
