@@ -23,6 +23,7 @@
           aria-hidden="true"
           hidden=""
           :checked="i == 1 ? 'checked' : false"
+          0
         />
 
         <div

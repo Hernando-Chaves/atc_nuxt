@@ -22,7 +22,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/MixinsCommons.js'
+    '~/plugins/MixinsCommons.js',
   ],
 
 
@@ -47,7 +47,8 @@ export default {
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    // 'nuxt-leaflet',
   ],
   apollo: {
     clientConfigs: {

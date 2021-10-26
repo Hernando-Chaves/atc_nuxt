@@ -4,12 +4,11 @@
       <div class="title-atc">
         <h2 class="text-2xl text-center text-black uppercase font-semibold">
           Egresados destacados
-          <!-- {{ egresados }} -->
         </h2>
       </div>
       <div class="grid grid-cols-3 gap-2 mt-4b mt-5 container max-w">
         <div
-          class="hover:shadow-2xl transition duration-500 cursor-pointer"
+          class="group hover:shadow-2xl transition duration-500 cursor-pointer"
           v-for="{
             id,
             title,
@@ -30,7 +29,7 @@
             <div class="relative">
               <img :src="sourceUrl" :alt="altText" :srcset="srcSet" />
               <h2
-                class="text-black text-xl bg-white px-4 py-2 absolute -bottom-3 right-1  shadow-xl"
+                class="text-black group-hover:text-white text-xl bg-white group-hover:bg-primary-500 px-4 py-2 absolute -bottom-3 right-1 transition duration-500  shadow-xl"
               >
                 {{ title }}
               </h2>

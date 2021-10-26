@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LayoutSlider />
+    <!-- <LayoutSlider /> -->
 
     <div class="my-4">
       <CursosProgramas />

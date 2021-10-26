@@ -8,7 +8,7 @@
       </div>
       <div class="grid grid-cols-3 gap-2 mt-4b mt-5 container">
         <div
-          class="pb-6 pt-2 px-3 hover:shadow-xl transition duration-500"
+          class="group pb-6 pt-2 px-3 hover:shadow-xl transition duration-500"
           v-for="{
             title,
             id,
@@ -45,7 +45,7 @@
               {{ title }}
             </h2>
             <button
-              class="text-gray-900 text-base hover:bg-primary-500 hover:text-white transition duration-500 px-5 py-3 mt-8"
+              class="text-gray-900 text-base group-hover:bg-primary-500 group-hover:text-white transition duration-500 px-5 py-3 mt-8"
             >
               Ver programa
               <span>
