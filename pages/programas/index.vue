@@ -5,6 +5,7 @@
         :hero="getHeroProgramas"
         :img="getHeroProgramas.imagenDeFondo"
       />
+      <CursosFiltro />
       <CursosProgramas />
     </div>
   </div>

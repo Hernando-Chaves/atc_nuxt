@@ -48,7 +48,20 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/apollo',
-    // 'nuxt-leaflet',
+    '@nuxtjs/axios',
+    ['nuxt-mail', {
+      message: {
+        to: 'paginas1a@gmail.com',
+      },
+      smtp: {
+        host: 'smtp.gmail.com',
+        port: 465,
+        auth: {
+          user: 'paginas1a@gmail.com',
+          pass: '$60D41W4y$w!THm3$!B13$$3d!2'
+        },
+      },
+    }]
   ],
   apollo: {
     clientConfigs: {
