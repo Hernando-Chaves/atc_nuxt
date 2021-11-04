@@ -10,7 +10,7 @@
             Contáctame
           </h2>
         </div>
-        <form action="#" method="POST">
+        <form action="#" method="POST" data-netlify="true">
           <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
               <div class="grid grid-cols-4 gap-6">
@@ -22,8 +22,8 @@
                   >
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
+                    name="nombre"
+                    id="nombre"
                     autocomplete="given-name"
                     class="mt-1 focus:ring-primary-500 focus:border-primary-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -32,13 +32,13 @@
                   <label
                     for="last-name"
                     class="block text-sm font-medium text-gray-700"
-                    >Last name</label
+                    >Teléfono</label
                   >
                   <input
                     type="text"
-                    name="last-name"
-                    id="last-name"
-                    autocomplete="family-name"
+                    name="telefono"
+                    id="telefono"
+                    autocomplete="telefono"
                     class="mt-1 focus:ring-primary-500 focus:border-primary-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
@@ -46,18 +46,19 @@
                   <label
                     for="email-address"
                     class="block text-sm font-medium text-gray-700"
-                    >Email address</label
+                    >Correo</label
                   >
                   <input
                     type="text"
-                    name="email-address"
-                    id="email-address"
-                    autocomplete="email"
+                    name="correo"
+                    id="correo"
+                    autocomplete="correo"
                     class="mt-1 focus:ring-primary-500 focus:border-primary-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
               </div>
             </div>
+            <div data-netlify-recaptcha="true"></div>
             <div class="px-4 py-3 bg-gray-50  sm:px-6">
               <button
                 type="submit"
