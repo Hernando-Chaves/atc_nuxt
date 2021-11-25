@@ -31,7 +31,6 @@ export const actions = {
         await client.query(query)
             .then(resp => {
                 commit('addEgresados', resp.data.egresados.nodes)
-
             })
             .catch(e => {
                 console.log(e)
@@ -46,7 +45,6 @@ export const actions = {
             .then(resp => {
                 const { pages: { edges: [{ node: { template: { heroPaginas } } }] } } = resp.data;
                 commit('addHeroEgresados', heroPaginas)
-
             })
             .catch(e => {
                 console.log(e)
